@@ -7,3 +7,7 @@ spring:
   sql:
     init:
       mode: always
+
+mybatis:
+  mapper-locations:
+    - classpath:repository/*.xml
