@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: chat_app
+  datasource:
+    url: jdbc:sqlite:db.sqlite
+    driver-class-name: org.sqlite.JDBC
+  sql:
+    init:
+      mode: always
