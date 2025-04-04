@@ -10,6 +10,8 @@ spring:
   devtools:
     livereload:
       enabled: true
+  thymeleaf:
+    cache: false
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
