@@ -9,5 +9,5 @@ spring:
       mode: always
 
 mybatis:
-  mapper-locations:
-    - classpath:repository/*.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatisConfig.xml

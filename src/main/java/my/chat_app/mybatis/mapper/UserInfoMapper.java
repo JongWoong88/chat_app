@@ -1,6 +1,6 @@
-package my.chat_app.repository;
+package my.chat_app.mybatis.mapper;
 
-import my.chat_app.model.UserInfo;
+import my.chat_app.mybatis.model.UserInfo;
 import org.springframework.stereotype.Repository;
 
 @Repository

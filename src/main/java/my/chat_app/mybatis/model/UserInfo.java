@@ -1,4 +1,4 @@
-package my.chat_app.model;
+package my.chat_app.mybatis.model;
 
 import lombok.Getter;
 import lombok.Setter;

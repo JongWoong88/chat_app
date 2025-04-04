@@ -1,9 +1,8 @@
 package my.chat_app.repository;
 
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
-import my.chat_app.model.UserInfo;
+import my.chat_app.mybatis.model.UserInfo;
+import my.chat_app.mybatis.mapper.UserInfoMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

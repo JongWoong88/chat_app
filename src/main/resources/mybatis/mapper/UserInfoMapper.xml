@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="my.chat_app.repository.UserInfoMapper">
-    <insert id="insert" parameterType="my.chat_app.model.UserInfo">
+<mapper namespace="my.chat_app.mybatis.mapper.UserInfoMapper">
+    <insert id="insert" parameterType="my.chat_app.mybatis.model.UserInfo">
         INSERT INTO user_info (email, password, valid, reg_dt)
         VALUES (#{email}, #{password}, #{valid}, #{regDt})
     </insert>
 
-    <select id="selectByPrimaryKey" resultType="my.chat_app.model.UserInfo">
+    <select id="selectByPrimaryKey" resultType="my.chat_app.mybatis.model.UserInfo">
         SELECT *
         FROM user_info
         WHERE seq = #{seq}
