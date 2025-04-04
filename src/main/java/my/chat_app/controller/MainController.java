@@ -1,4 +1,4 @@
-package my.chat_app.mybatis;
+package my.chat_app.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

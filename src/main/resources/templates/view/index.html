@@ -3,13 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 </head>
 <body>
-<textarea readonly>
-    textarea
+<input type="text" id="user-name" placeholder="닉네임을 입력하세요">
+<button type="button" onclick="setName()">설정</button>
+<br>
+닉네임: <span id="name-area"></span>
+<br>
+
+<textarea id="chat-area" readonly>
 </textarea>
 <br>
-<input type="text" placeholder="채팅을 입력하세요"/>
-<button type="button">확인</button>
+
+<input type="text" id="message-input" placeholder="채팅을 입력하세요"/>
+<button type="button" id="send-btn" onclick="send()">전송</button>
 </body>
+<script>
+    var nameSpan = $('#name-area');
+    var userNameInput = $('#user-name');
+    var messageInput = $('#message-input');
+    var chatArea = $('#chat-area');
+
+    var userName = '';
+
+    const socket = new SockJS('http://localhost:8080/ws-chat');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function(frame) {
+        stompClient.subscribe('/topic/public', function(message) {
+            showMessage(JSON.parse(message.body));
+        });
+    });
+
+    function setName() {
+        userName = userNameInput.val();
+        userNameInput.val('');
+        nameSpan.text(userName);
+    }
+
+    function send() {
+        const messageContent = messageInput.val().trim();
+
+        if(messageContent) {
+            const chatMessage = {
+                sender: userName,
+                content: messageContent
+            };
+
+            stompClient.send("/app/chat.send", {}, JSON.stringify(chatMessage));
+            messageInput.val('');
+        }
+    }
+
+    function showMessage(message) {
+        console.log(message);
+        var currentChat = chatArea.val();
+        currentChat += `${message.sender}(${message.time}): ${message.content}\n`;
+        chatArea.val(currentChat);
+    }
+</script>
 </html>
