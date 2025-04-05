@@ -1,4 +1,4 @@
-package my.chat_app.config.ws;
+package my.chat_app.ws;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -19,6 +19,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws-chat")
-                .withSockJS();  // SockJS 폴백 지원[1][3]
+                .withSockJS();
     }
 }

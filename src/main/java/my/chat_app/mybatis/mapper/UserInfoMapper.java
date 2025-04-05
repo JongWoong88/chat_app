@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 public interface UserInfoMapper {
     int insert(UserInfo record);
     UserInfo selectByPrimaryKey(Integer seq);
+    UserInfo selectByEmail(String email);
 }
 

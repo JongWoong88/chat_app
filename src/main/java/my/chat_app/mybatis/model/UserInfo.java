@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 public class UserInfo {
     private Integer       seq;
     private String        email;
+    private String        nickname;
     private String        password;
     private boolean       valid;
     private LocalDateTime regDt;

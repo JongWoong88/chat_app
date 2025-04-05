@@ -4,13 +4,19 @@
 
 <mapper namespace="my.chat_app.mybatis.mapper.UserInfoMapper">
     <insert id="insert" parameterType="my.chat_app.mybatis.model.UserInfo">
-        INSERT INTO user_info (email, password, valid, reg_dt)
-        VALUES (#{email}, #{password}, #{valid}, #{regDt})
+        INSERT INTO user_info (email, nickname, password, valid, reg_dt)
+        VALUES (#{email}, #{nickname}, #{password}, #{valid}, #{regDt})
     </insert>
 
     <select id="selectByPrimaryKey" resultType="my.chat_app.mybatis.model.UserInfo">
         SELECT *
         FROM user_info
         WHERE seq = #{seq}
+    </select>
+
+    <select id="selectByEmail" resultType="my.chat_app.mybatis.model.UserInfo">
+        SELECT *
+        FROM user_info
+        WHERE email = #{email}
     </select>
 </mapper>

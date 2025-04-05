@@ -1,4 +1,4 @@
-package my.chat_app.model;
+package my.chat_app.ws;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

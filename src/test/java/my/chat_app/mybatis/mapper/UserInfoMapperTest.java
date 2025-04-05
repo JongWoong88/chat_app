@@ -19,6 +19,7 @@ class UserInfoMapperTest {
     void insert() {
         UserInfo userInfo = new UserInfo();
         userInfo.setEmail("fiveeyes11@gmail.com");
+        userInfo.setNickname("쿵쿠쿵");
         userInfo.setPassword("test1234");
         userInfo.setValid(true);
         userInfo.setRegDt(LocalDateTime.now());

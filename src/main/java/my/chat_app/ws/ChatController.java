@@ -1,7 +1,6 @@
-package my.chat_app.controller;
+package my.chat_app.ws;
 
 import lombok.extern.log4j.Log4j2;
-import my.chat_app.model.ChatMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
