@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootTest
 @Log4j2
@@ -16,19 +16,23 @@ class UserInfoMapperTest {
     UserInfoMapper userInfoMapper;
 
     @Test
-    void insert() {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setEmail("fiveeyes11@gmail.com");
-        userInfo.setNickname("쿵쿠쿵");
-        userInfo.setPassword("test1234");
-        userInfo.setValid(true);
-        userInfo.setRegDt(LocalDateTime.now());
-        userInfoMapper.insert(userInfo);
+    void selectByPk() {
+        UserInfo result = userInfoMapper.selectByPk(1);
+        log.info(result);
     }
 
     @Test
-    void select() {
-        UserInfo userInfo = userInfoMapper.selectByPrimaryKey(1);
-        log.info(userInfo.toString());
+    void selectByCondition() {
+        List<UserInfo> result = userInfoMapper.selectByCondition(2);
+        result.forEach(row -> log.info(row));
     }
+
+    @Test
+    void insert() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setNickname("강성모");
+        userInfo.setPassword("123456");
+        int  result= userInfoMapper.insert(userInfo);
+    }
+
 }
